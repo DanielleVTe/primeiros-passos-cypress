@@ -1,6 +1,7 @@
 describe('Orange HRM Tests', () => {
+
   const selectorList = {
-    usernameField: "[name='username]",
+    usernameField: "[name='username']",
     passwordField: "[name='password']",
     loginButton: "[type='submit']",
     sectionTitleTopBar: ".oxd-topbar-header-breadcrumb-module",
@@ -25,5 +26,7 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorList.passwordField).type('test');
     cy.get(selectorList.loginButton).click();
     cy.get(selectorList.wrongCredentialAlert)    
+    // Verifica se o alerta de credenciais incorretas aparece
+    cy.get(selectorList.wrongCredentialAlert).should('be.visible');
   });
 });
